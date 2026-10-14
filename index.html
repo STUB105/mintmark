@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mint Mark Studios</title>
+<meta name="description" content="Mint Mark Studios makes games, shows and anime. Bug Blitz, Dead Bayou and Fortfall for iPhone.">
+<link rel="icon" href="img/bugblitz.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap">
+<style>
+/* Layout: a mint stamp header, then labelled shelves of boxes: games, shows, anime, help */
+:root{
+  --bg:#f3f7f4;--card:#ffffff;--fg:#17241f;--muted:#5a6b63;--line:#d6e3dc;
+  --mint:#1f9e6e;--mint-soft:#dcf2e7;--chip:#eef3f0;--soon:#8a6a1e;--soon-bg:#fbf1d9;
+  --display:"Bricolage Grotesque","Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1714;--card:#17221e;--fg:#e6efe9;--muted:#9db0a6;--line:#26352f;--mint:#5fd6a3;--mint-soft:#1b3329;--chip:#1e2b26;--soon:#e8c56f;--soon-bg:#2d2615;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1714;--card:#17221e;--fg:#e6efe9;--muted:#9db0a6;--line:#26352f;--mint:#5fd6a3;--mint-soft:#1b3329;--chip:#1e2b26;--soon:#e8c56f;--soon-bg:#2d2615;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--mint);text-underline-offset:3px}
+a:focus-visible,.card:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+
+header{padding-block:max(28px,env(safe-area-inset-top,0px)) 8px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+.stamp{width:44px;height:44px;border-radius:50%;background:var(--mint);color:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;box-shadow:inset 0 0 0 3px var(--bg),0 0 0 2px var(--mint)}
+.brand b{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em}
+.hero{padding-block:40px 28px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(36px,7vw,64px);line-height:1.02;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero p{margin:0;color:var(--muted);font-size:18px;max-width:52ch}
+
+section{padding-block:22px}
+.shelf-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.shelf-head h2{font-family:var(--display);font-weight:800;font-size:26px;margin:0;letter-spacing:-.01em}
+.shelf-head span{color:var(--muted);font-size:14px}
+
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.game{flex-direction:row;align-items:flex-start}
+.game .art{width:88px;height:88px;flex:none;border-radius:20px;overflow:hidden;background:var(--chip)}
+.game .art img{width:100%;height:100%;display:block;object-fit:cover}
+.game .txt{min-width:0;display:flex;flex-direction:column;gap:6px}
+.card h3{font-family:var(--display);font-weight:800;font-size:21px;margin:0;line-height:1.15}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.chip{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.chip.review{background:var(--mint-soft);color:var(--mint)}
+.chip.soon{background:var(--soon-bg);color:var(--soon)}
+.links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;font-weight:600}
+
+.game .art.fort{background:linear-gradient(180deg,#2b3f6b,#1a2744)}
+.fort svg{width:100%;height:100%;display:block}
+
+.two{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.empty{border-style:dashed;background:transparent;min-height:150px;justify-content:center}
+.empty .ico{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--mint)}
+
+.help{background:var(--mint-soft);border-color:transparent}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.mail code{font-family:var(--body);font-weight:700;font-size:17px;color:var(--fg);user-select:all;overflow-wrap:anywhere}
+.copy{appearance:none;border:1px solid var(--mint);background:transparent;color:var(--mint);font:600 14px var(--body);padding:6px 12px;border-radius:999px;cursor:pointer}
+.copy:hover{background:var(--mint);color:var(--bg)}
+.copy:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+
+footer{padding-block:36px max(36px,env(safe-area-inset-bottom,0px));color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .15s ease,border-color .15s ease}.game:hover{transform:translateY(-2px);border-color:var(--mint)}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="./" aria-label="Mint Mark Studios home"><span class="stamp" aria-hidden="true">M</span><b>Mint Mark Studios</b></a>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <h1>Games, shows and anime, <em>made by Mint Mark.</em></h1>
+    <p>A small independent studio. We're starting with mobile games for iPhone, with stories for the screen on the way.</p>
+  </div>
+
+  <section class="wrap" id="games" aria-labelledby="games-h">
+    <div class="shelf-head"><h2 id="games-h">Games</h2><span>iPhone</span></div>
+    <div class="grid">
+      <article class="card game">
+        <div class="art"><img src="img/bugblitz.png" alt="Bug Blitz app icon, a purple spider" width="88" height="88"></div>
+        <div class="txt">
+          <span class="chip review">In App Store review</span>
+          <h3>Bug Blitz: Lane Defense</h3>
+          <p>Spiders crawl down three lanes. Switch lanes, aim fast and blast them before they reach you.</p>
+          <div class="links"><a href="bugblitz-privacy.html">Privacy &amp; support</a></div>
+        </div>
+      </article>
+      <article class="card game">
+        <div class="art"><img src="img/deadbayou.png" alt="Dead Bayou app icon, a survivor walking a swamp road at sunset" width="88" height="88"></div>
+        <div class="txt">
+          <span class="chip soon">Coming soon</span>
+          <h3>Dead Bayou</h3>
+          <p>Survive the road through a ruined Louisiana swamp. Scavenge, trade, find companions and keep moving.</p>
+          <div class="links"><a href="deadbayou-privacy.html">Privacy &amp; support</a></div>
+        </div>
+      </article>
+      <article class="card game">
+        <div class="art fort" aria-hidden="true">
+          <svg viewBox="0 0 88 88"><circle cx="66" cy="22" r="8" fill="#f3d27a"/><path fill="#e9e1cc" d="M18 72V40h6v-6h6v6h6v-6h6v6h6v-6h6v6h6v-6h6v6h6v32H50V58a6 6 0 0 0-12 0v14z"/><rect x="0" y="72" width="88" height="16" fill="#3d6b3a"/><path fill="#c94b3b" d="M44 20v12h1V24l8-2-8-2z"/><rect x="43" y="20" width="2" height="14" fill="#e9e1cc"/></svg>
+        </div>
+        <div class="txt">
+          <span class="chip">In development</span>
+          <h3>Fortfall</h3>
+          <p>Orcs, goblins and the restless dead march on the castle. Build towers and hold all five roads.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="Shows and anime">
+    <div class="two">
+      <div>
+        <div class="shelf-head"><h2>Shows</h2></div>
+        <div class="card empty"><span class="ico">Coming later</span><p>Original series are in the works. Check back here for news.</p></div>
+      </div>
+      <div>
+        <div class="shelf-head"><h2>Anime</h2></div>
+        <div class="card empty"><span class="ico">Coming later</span><p>Animated stories set in Mint Mark worlds. Nothing to watch yet.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="support" aria-labelledby="help-h">
+    <div class="shelf-head"><h2 id="help-h">Support</h2></div>
+    <div class="two">
+      <div class="card help">
+        <h3>Need help with a game?</h3>
+        <p>Email us and say which game and what happened. We usually reply within a few days.</p>
+        <div class="mail"><code id="mail">mmintmmarkgames@gmail.com</code><button class="copy" id="copyBtn" type="button">Copy</button></div>
+      </div>
+      <div class="card">
+        <h3>Privacy policies</h3>
+        <ul class="plain">
+          <li><a href="bugblitz-privacy.html">Bug Blitz privacy policy</a></li>
+          <li><a href="deadbayou-privacy.html">Dead Bayou privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">© 2026 Mint Mark Studios</footer>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var b=this,t=document.getElementById('mail').textContent;
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel)}else sel();
+});
+</script>
+</body>
+</html>
