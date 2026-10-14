@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mint Mark Studios</title>
-<meta name="description" content="Mint Mark Studios makes games, shows and anime. Bug Blitz, Dead Bayou and Fortfall for iPhone.">
+<meta name="description" content="Mint Mark Studios makes mobile games for iPhone, including Bug Blitz and Dead Bayou.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap">
 <style>
-/* Layout: a mint stamp header, then labelled shelves of boxes: games, shows, anime, help */
+/* Layout: a mint stamp header, then labelled shelves of boxes: games and help */
 :root{
   --bg:#f3f7f4;--card:#ffffff;--fg:#17241f;--muted:#5a6b63;--line:#d6e3dc;
   --mint:#1f9e6e;--mint-soft:#dcf2e7;--chip:#eef3f0;--soon:#8a6a1e;--soon-bg:#fbf1d9;
@@ -40,7 +40,7 @@ section{padding-block:22px}
 .shelf-head h2{font-family:var(--display);font-weight:800;font-size:26px;margin:0;letter-spacing:-.01em}
 .shelf-head span{color:var(--muted);font-size:14px}
 
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .game{flex-direction:row;align-items:flex-start}
 .game .art{width:88px;height:88px;flex:none;border-radius:20px;overflow:hidden;background:var(--chip)}
@@ -79,8 +79,8 @@ footer{padding-block:36px max(36px,env(safe-area-inset-bottom,0px));color:var(--
 
 <main>
   <div class="wrap hero">
-    <h1>Games, shows and anime, <em>made by Mint Mark.</em></h1>
-    <p>A small independent studio. We're starting with mobile games for iPhone, with stories for the screen on the way.</p>
+    <h1>Small games, <em>made with care.</em></h1>
+    <p>Mint Mark Studios is an independent studio making mobile games for iPhone.</p>
   </div>
 
   <section class="wrap" id="games" aria-labelledby="games-h">
@@ -104,29 +104,6 @@ footer{padding-block:36px max(36px,env(safe-area-inset-bottom,0px));color:var(--
           <div class="links"><a href="deadbayou-privacy.html">Privacy &amp; support</a></div>
         </div>
       </article>
-      <article class="card game">
-        <div class="art fort" aria-hidden="true">
-          <svg viewBox="0 0 88 88"><circle cx="66" cy="22" r="8" fill="#f3d27a"/><path fill="#e9e1cc" d="M18 72V40h6v-6h6v6h6v-6h6v6h6v-6h6v6h6v-6h6v6h6v32H50V58a6 6 0 0 0-12 0v14z"/><rect x="0" y="72" width="88" height="16" fill="#3d6b3a"/><path fill="#c94b3b" d="M44 20v12h1V24l8-2-8-2z"/><rect x="43" y="20" width="2" height="14" fill="#e9e1cc"/></svg>
-        </div>
-        <div class="txt">
-          <span class="chip">In development</span>
-          <h3>Fortfall</h3>
-          <p>Orcs, goblins and the restless dead march on the castle. Build towers and hold all five roads.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap" aria-label="Shows and anime">
-    <div class="two">
-      <div>
-        <div class="shelf-head"><h2>Shows</h2></div>
-        <div class="card empty"><span class="ico">Coming later</span><p>Original series are in the works. Check back here for news.</p></div>
-      </div>
-      <div>
-        <div class="shelf-head"><h2>Anime</h2></div>
-        <div class="card empty"><span class="ico">Coming later</span><p>Animated stories set in Mint Mark worlds. Nothing to watch yet.</p></div>
-      </div>
     </div>
   </section>
 
